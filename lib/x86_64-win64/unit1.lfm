@@ -1,0 +1,230 @@
+object Form1: TForm1
+  Left = 274
+  Height = 260
+  Top = 121
+  Width = 352
+  AlphaBlend = True
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Converter'
+  ClientHeight = 260
+  ClientWidth = 352
+  OnCreate = FormCreate
+  ParentBiDiMode = False
+  Position = poDesktopCenter
+  LCLVersion = '2.0.0.4'
+  object EditASCII: TEdit
+    Left = 83
+    Height = 23
+    Top = 216
+    Width = 183
+    ReadOnly = True
+    TabOrder = 0
+    TextHint = '(temporarily not working)'
+  end
+  object EditDec: TEdit
+    Left = 83
+    Height = 23
+    Top = 56
+    Width = 183
+    NumbersOnly = True
+    OnKeyPress = EditDecKeyPress
+    OnKeyUp = EditDecKeyUp
+    TabOrder = 1
+  end
+  object EditOct: TEdit
+    Left = 83
+    Height = 23
+    Top = 96
+    Width = 183
+    NumbersOnly = True
+    OnKeyPress = EditOctKeyPress
+    OnKeyUp = EditOctKeyUp
+    TabOrder = 2
+  end
+  object EditHex: TEdit
+    Left = 83
+    Height = 23
+    Top = 136
+    Width = 183
+    OnKeyPress = EditHexKeyPress
+    OnKeyUp = EditHexKeyUp
+    TabOrder = 3
+  end
+  object EditBin: TEdit
+    Left = 83
+    Height = 23
+    Top = 176
+    Width = 183
+    NumbersOnly = True
+    OnKeyPress = EditBinKeyPress
+    OnKeyUp = EditBinKeyUp
+    TabOrder = 4
+  end
+  object LabelASCII: TLabel
+    Left = 16
+    Height = 21
+    Top = 218
+    Width = 40
+    Caption = 'ASCII:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelDec: TLabel
+    Left = 27
+    Height = 21
+    Top = 56
+    Width = 29
+    Caption = 'Dec:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelOct: TLabel
+    Left = 29
+    Height = 21
+    Top = 96
+    Width = 27
+    Caption = 'Oct:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelHex: TLabel
+    Left = 27
+    Height = 21
+    Top = 136
+    Width = 29
+    Caption = 'Hex:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelBin: TLabel
+    Left = 31
+    Height = 21
+    Top = 176
+    Width = 25
+    Caption = 'Bin:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object ScrollAlpha: TScrollBar
+    Left = 72
+    Height = 13
+    Top = 14
+    Width = 136
+    DoubleBuffered = False
+    Max = 255
+    Min = 100
+    PageSize = 0
+    ParentBidiMode = False
+    ParentDoubleBuffered = False
+    Position = 255
+    TabOrder = 5
+    OnChange = ScrollAlphaChange
+  end
+  object Label1: TLabel
+    Left = 85
+    Height = 1
+    Top = 220
+    Width = 1
+    ParentColor = False
+  end
+  object ABtnCopy: TBitBtn
+    Left = 283
+    Height = 24
+    Top = 216
+    Width = 51
+    Caption = 'Copy'
+    OnClick = ABtnCopyClick
+    TabOrder = 6
+  end
+  object DBtnCopy: TBitBtn
+    Left = 283
+    Height = 24
+    Top = 56
+    Width = 51
+    Caption = 'Copy'
+    OnClick = DBtnCopyClick
+    TabOrder = 7
+  end
+  object OBtnCopy: TBitBtn
+    Left = 283
+    Height = 24
+    Top = 96
+    Width = 51
+    Caption = 'Copy'
+    OnClick = OBtnCopyClick
+    TabOrder = 8
+  end
+  object HBtnCopy: TBitBtn
+    Left = 283
+    Height = 24
+    Top = 136
+    Width = 51
+    Caption = 'Copy'
+    OnClick = HBtnCopyClick
+    TabOrder = 9
+  end
+  object BBtnCopy: TBitBtn
+    Left = 283
+    Height = 24
+    Top = 176
+    Width = 51
+    Caption = 'Copy'
+    OnClick = BBtnCopyClick
+    TabOrder = 10
+  end
+  object CheckBoxThemed1: TCheckBoxThemed
+    Left = 240
+    Height = 19
+    Top = 10
+    Width = 99
+    Caption = 'Fix the window'
+    TabOrder = 11
+    OnChange = CheckBoxThemed1Change
+  end
+  object Label2: TLabel
+    Left = 20
+    Height = 17
+    Top = 10
+    Width = 36
+    Caption = 'Alpha:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+end
