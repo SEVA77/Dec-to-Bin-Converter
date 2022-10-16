@@ -1,63 +1,64 @@
 object Form1: TForm1
-  Left = 426
-  Height = 277
-  Top = 137
-  Width = 352
+  Left = 855
+  Height = 273
+  Top = 334
+  Width = 359
   ActiveControl = CheckBoxThemed1
   AlphaBlend = True
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Dec to Bin Converter'
-  ClientHeight = 277
-  ClientWidth = 352
+  ClientHeight = 273
+  ClientWidth = 359
+  DesignTimePPI = 98
   OnCreate = FormCreate
   ParentBiDiMode = False
   Position = poDesktopCenter
-  LCLVersion = '2.0.10.0'
+  LCLVersion = '2.2.4.0'
   object EditASCII: TEdit
-    Left = 83
-    Height = 28
-    Top = 216
-    Width = 183
+    Left = 85
+    Height = 30
+    Top = 224
+    Width = 187
     ReadOnly = True
     TabOrder = 0
     TextHint = '(temporarily not working)'
     Visible = False
   end
   object EditDec: TEdit
-    Left = 83
-    Height = 28
-    Top = 56
-    Width = 183
+    Left = 85
+    Height = 30
+    Top = 48
+    Width = 187
     NumbersOnly = True
     OnKeyPress = EditDecKeyPress
     OnKeyUp = EditDecKeyUp
     TabOrder = 1
   end
   object EditOct: TEdit
-    Left = 83
-    Height = 28
-    Top = 96
-    Width = 183
+    Left = 85
+    Height = 30
+    Top = 92
+    Width = 187
     NumbersOnly = True
     OnKeyPress = EditOctKeyPress
     OnKeyUp = EditOctKeyUp
     TabOrder = 2
   end
   object EditHex: TEdit
-    Left = 83
-    Height = 28
-    Top = 136
-    Width = 183
+    Left = 85
+    Height = 30
+    Top = 137
+    Width = 187
     OnKeyPress = EditHexKeyPress
     OnKeyUp = EditHexKeyUp
     TabOrder = 3
   end
   object EditBin: TEdit
-    Left = 83
-    Height = 28
-    Top = 176
-    Width = 183
+    Left = 85
+    Height = 30
+    Top = 181
+    Width = 187
     NumbersOnly = True
     OnKeyPress = EditBinKeyPress
     OnKeyUp = EditBinKeyUp
@@ -65,9 +66,9 @@ object Form1: TForm1
   end
   object LabelASCII: TLabel
     Left = 16
-    Height = 18
-    Top = 218
-    Width = 41
+    Height = 20
+    Top = 228
+    Width = 42
     Caption = 'ASCII:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
@@ -80,10 +81,10 @@ object Form1: TForm1
     Visible = False
   end
   object LabelDec: TLabel
-    Left = 27
-    Height = 18
-    Top = 56
-    Width = 30
+    Left = 26
+    Height = 20
+    Top = 52
+    Width = 32
     Caption = 'Dec:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
@@ -95,10 +96,10 @@ object Form1: TForm1
     ParentFont = False
   end
   object LabelOct: TLabel
-    Left = 29
-    Height = 18
+    Left = 28
+    Height = 20
     Top = 96
-    Width = 29
+    Width = 30
     Caption = 'Oct:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
@@ -110,9 +111,9 @@ object Form1: TForm1
     ParentFont = False
   end
   object LabelHex: TLabel
-    Left = 27
-    Height = 18
-    Top = 136
+    Left = 26
+    Height = 20
+    Top = 141
     Width = 32
     Caption = 'Hex:'
     Font.CharSet = RUSSIAN_CHARSET
@@ -125,10 +126,10 @@ object Form1: TForm1
     ParentFont = False
   end
   object LabelBin: TLabel
-    Left = 31
-    Height = 18
-    Top = 176
-    Width = 27
+    Left = 30
+    Height = 20
+    Top = 185
+    Width = 28
     Caption = 'Bin:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
@@ -142,23 +143,25 @@ object Form1: TForm1
   object ScrollAlpha: TScrollBar
     Left = 72
     Height = 13
-    Top = 14
-    Width = 136
+    Top = 16
+    Width = 139
     DoubleBuffered = False
     Max = 255
     Min = 100
     PageSize = 0
     ParentBidiMode = False
     ParentDoubleBuffered = False
+    ParentShowHint = False
     Position = 255
+    ShowHint = True
     TabOrder = 5
     OnChange = ScrollAlphaChange
   end
   object ABtnCopy: TBitBtn
-    Left = 283
-    Height = 24
-    Top = 216
-    Width = 51
+    Left = 289
+    Height = 30
+    Top = 224
+    Width = 52
     Caption = 'Copy'
     Font.Height = -13
     Font.Name = 'Sans'
@@ -168,10 +171,10 @@ object Form1: TForm1
     Visible = False
   end
   object DBtnCopy: TBitBtn
-    Left = 283
-    Height = 24
-    Top = 56
-    Width = 51
+    Left = 289
+    Height = 30
+    Top = 48
+    Width = 52
     Caption = 'Copy'
     Font.Height = -13
     Font.Name = 'Sans'
@@ -180,10 +183,10 @@ object Form1: TForm1
     TabOrder = 7
   end
   object OBtnCopy: TBitBtn
-    Left = 283
-    Height = 24
-    Top = 96
-    Width = 51
+    Left = 289
+    Height = 30
+    Top = 92
+    Width = 52
     Caption = 'Copy'
     Font.Height = -13
     Font.Name = 'Sans'
@@ -192,10 +195,10 @@ object Form1: TForm1
     TabOrder = 8
   end
   object HBtnCopy: TBitBtn
-    Left = 283
-    Height = 24
-    Top = 136
-    Width = 51
+    Left = 289
+    Height = 30
+    Top = 137
+    Width = 52
     Caption = 'Copy'
     Font.Height = -13
     Font.Name = 'Sans'
@@ -204,10 +207,10 @@ object Form1: TForm1
     TabOrder = 9
   end
   object BBtnCopy: TBitBtn
-    Left = 283
-    Height = 24
-    Top = 176
-    Width = 51
+    Left = 289
+    Height = 30
+    Top = 181
+    Width = 52
     Caption = 'Copy'
     Font.Height = -13
     Font.Name = 'Sans'
@@ -216,11 +219,11 @@ object Form1: TForm1
     TabOrder = 10
   end
   object CheckBoxThemed1: TCheckBoxThemed
-    Left = 224
-    Height = 19
+    Left = 229
+    Height = 22
     Top = 10
-    Width = 118
-    Caption = 'Fix the window'
+    Width = 111
+    Caption = 'Window on top'
     Font.Height = -13
     Font.Name = 'Sans'
     ParentFont = False
@@ -229,9 +232,9 @@ object Form1: TForm1
   end
   object LabelAlpha: TLabel
     Left = 20
-    Height = 15
+    Height = 18
     Top = 12
-    Width = 41
+    Width = 37
     Caption = 'Alpha:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
@@ -244,32 +247,33 @@ object Form1: TForm1
   end
   object LabelCopyright: TLabel
     Left = 0
-    Height = 15
-    Top = 228
-    Width = 352
+    Height = 14
+    Top = 226
+    Width = 359
     Align = alBottom
     Alignment = taCenter
     BorderSpacing.Bottom = 6
     Caption = 'Copyright (C) Usevalad Khatkevich'
-    Font.Height = -13
-    Font.Name = 'Sans'
+    Font.Height = -11
+    Font.Name = 'Cantarell'
     ParentColor = False
     ParentFont = False
   end
   object LabelLink: TLabel
     Cursor = crHandPoint
-    Left = 96
-    Height = 15
-    Top = 249
-    Width = 174
+    Left = 98
+    Height = 14
+    Top = 246
+    Width = 177
     Align = alBottom
-    BorderSpacing.Left = 96
-    BorderSpacing.Right = 82
+    Alignment = taCenter
+    BorderSpacing.Left = 98
+    BorderSpacing.Right = 84
     BorderSpacing.Bottom = 13
     Caption = 'https://github.com/SEVA77'
     Color = clForm
-    Font.Height = -13
-    Font.Name = 'Sans'
+    Font.Height = -11
+    Font.Name = 'Cantarell'
     ParentBidiMode = False
     ParentColor = False
     ParentFont = False
@@ -278,13 +282,13 @@ object Form1: TForm1
   end
   object LabelVer: TLabel
     Cursor = crHandPoint
-    Left = 292
-    Height = 15
-    Top = 262
-    Width = 60
-    Caption = 'ver. 0.0.1'
+    Left = 296
+    Height = 16
+    Top = 256
+    Width = 54
+    Caption = 'ver. 0.0.2'
     Font.Height = -13
-    Font.Name = 'Sans'
+    Font.Name = 'Cantarell'
     ParentColor = False
     ParentFont = False
     OnClick = LabelVerClick

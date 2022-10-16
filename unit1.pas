@@ -67,6 +67,20 @@ implementation
 
 { TForm1 }
 
+
+// Чистка всех полей:
+Procedure ClearEditX;
+begin
+  Form1.EditASCII.Text:='';
+  Form1.EditDec.Text:='';
+  Form1.EditOct.Text:='';
+  Form1.EditHex.Text:='';
+  Form1.EditBin.Text:='';
+end;
+
+
+    { Обработка полей по вводу }
+
 procedure TForm1.EditDecKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
 var
   textf:String;
@@ -74,13 +88,10 @@ var
   os:byte;
 begin
   if (EditDec.Text = '') then
-  begin
-  EditASCII.Text:='';
-  EditOct.Text:='';
-  EditHex.Text:='';
-  EditBin.Text:='';
-  exit
-  end
+    begin
+      ClearEditX;
+      exit
+    end
   else
         textf:=EditDec.Text;
         os:=8;
@@ -92,58 +103,77 @@ begin
         EditBin.Text:=Dec2Numb(t,1,os);
 end;
 
-procedure TForm1.EditBinKeyPress(Sender: TObject; var Key: char);
+procedure TForm1.EditOctKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var
+  textf:String;
+  t:longint;
+  os:byte;
 begin
-  if (Key=#8) then exit
-  else if (Key<#48) or (Key>#49) then Key:=#0;
+  if EditOct.Text='' then
+    begin
+      ClearEditX;
+      exit
+    end
+  else
+        textf:=EditOct.Text;
+        os:=8;
+        t:=Numb2Dec(textf,os);
+        EditDec.Text:=IntToStr(t);
+        t:=StrToInt64(EditDec.Text);
+        os:=16;
+        EditHex.Text:=Dec2Numb(t,1,os);
+        os:=2;
+        EditBin.Text:=Dec2Numb(t,1,os);
 end;
 
-procedure TForm1.ABtnCopyClick(Sender: TObject);
+procedure TForm1.EditHexKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var
+  textf:String;
+  t:longint;
+  os:byte;
 begin
-  EditASCII.SelectAll;
-  EditASCII.CopyToClipboard;
+  if EditHex.Text='' then
+    begin
+      ClearEditX;
+      exit
+    end
+  else
+        textf:=EditHex.Text;
+        os:=16;
+        t:=Numb2Dec(textf,os);
+        EditDec.Text:=IntToStr(t);
+        t:=StrToInt64(EditDec.Text);
+        os:=8;
+        EditOct.Text:=Dec2Numb(t,1,os);
+        os:=2;
+        EditBin.Text:=Dec2Numb(t,1,os);
 end;
 
-procedure TForm1.BBtnCopyClick(Sender: TObject);
+procedure TForm1.EditBinKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var
+  textf:String;
+  t:longint;
+  os:byte;
 begin
-  EditBin.SelectAll;
-  EditBin.CopyToClipboard;
+  if EditBin.Text='' then
+    begin
+      ClearEditX;
+      exit
+    end
+  else
+        textf:=EditBin.Text;
+        os:=2;
+        t:=Numb2Dec(textf,os);
+        EditDec.Text:=IntToStr(t);
+        t:=StrToInt64(EditDec.Text);
+        os:=8;
+        EditOct.Text:=Dec2Numb(t,1,os);
+        os:=16;
+        EditHex.Text:=Dec2Numb(t,1,os);
 end;
 
-procedure TForm1.CheckBoxThemed1Change(Sender: TObject);
-begin
-  if CheckBoxThemed1.Checked then
-    Form1.FormStyle:=fsSystemStayOnTop
-    else  Form1.FormStyle:=fsNormal;
-end;
 
-procedure TForm1.DBtnCopyClick(Sender: TObject);
-begin
-  EditDec.SelectAll;
-  EditDec.CopyToClipboard;
-end;
-
-procedure TForm1.HBtnCopyClick(Sender: TObject);
-begin
-  EditHex.SelectAll;
-  EditHex.CopyToClipboard;
-end;
-
-procedure TForm1.LabelLinkClick(Sender: TObject);
-begin
-  OpenURL('https://github.com/SEVA77');
-end;
-
-procedure TForm1.LabelVerClick(Sender: TObject);
-begin
-  OpenURL('https://github.com/SEVA77/Dec-to-Bin-Converter/releases');
-end;
-
-procedure TForm1.OBtnCopyClick(Sender: TObject);
-begin
-  EditOct.SelectAll;
-  EditOct.CopyToClipboard;
-end;
+    { Обработка клавиш }
 
 procedure TForm1.EditDecKeyPress(Sender: TObject; var Key: char);
 begin
@@ -164,85 +194,71 @@ begin
   else if (Key<#48) or (Key>#55) then Key:=#0;
 end;
 
-procedure TForm1.EditOctKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-var
-  textf:String;
-  t:longint;
-  os:byte;
+procedure TForm1.EditBinKeyPress(Sender: TObject; var Key: char);
 begin
-  if EditOct.Text='' then
-  begin
-  EditASCII.Text:='';
-  EditDec.Text:='';
-  EditOct.Text:='';
-  EditHex.Text:='';
-  EditBin.Text:='';
-  exit
-  end
-  else
-        textf:=EditOct.Text;
-        os:=8;
-        t:=Numb2Dec(textf,os);
-        EditDec.Text:=IntToStr(t);
-        t:=StrToInt64(EditDec.Text);
-        os:=16;
-        EditHex.Text:=Dec2Numb(t,1,os);
-        os:=2;
-        EditBin.Text:=Dec2Numb(t,1,os);
+  if (Key=#8) then exit
+  else if (Key<#48) or (Key>#49) then Key:=#0;
 end;
 
-procedure TForm1.EditHexKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-var
-  textf:String;
-  t:longint;
-  os:byte;
+
+    {Обработка кнопок 'Copy'}
+
+procedure TForm1.ABtnCopyClick(Sender: TObject);
 begin
-  if EditHex.Text='' then
-  begin
-  EditASCII.Text:='';
-  EditDec.Text:='';
-  EditOct.Text:='';
-  EditHex.Text:='';
-  EditBin.Text:='';
-  exit
-  end
-  else
-        textf:=EditHex.Text;
-        os:=16;
-        t:=Numb2Dec(textf,os);
-        EditDec.Text:=IntToStr(t);
-        t:=StrToInt64(EditDec.Text);
-        os:=8;
-        EditOct.Text:=Dec2Numb(t,1,os);
-        os:=2;
-        EditBin.Text:=Dec2Numb(t,1,os);
+  EditASCII.SelectAll;
+  EditASCII.CopyToClipboard;
 end;
 
-procedure TForm1.EditBinKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-var
-  textf:String;
-  t:longint;
-  os:byte;
+procedure TForm1.BBtnCopyClick(Sender: TObject);
 begin
-  if EditBin.Text='' then
-  begin
-  EditASCII.Text:='';
-  EditDec.Text:='';
-  EditOct.Text:='';
-  EditHex.Text:='';
-  EditBin.Text:='';
-  exit
-  end
-  else
-        textf:=EditBin.Text;
-        os:=2;
-        t:=Numb2Dec(textf,os);
-        EditDec.Text:=IntToStr(t);
-        t:=StrToInt64(EditDec.Text);
-        os:=8;
-        EditOct.Text:=Dec2Numb(t,1,os);
-        os:=16;
-        EditHex.Text:=Dec2Numb(t,1,os);
+  EditBin.SelectAll;
+  EditBin.CopyToClipboard;
+end;
+
+procedure TForm1.DBtnCopyClick(Sender: TObject);
+begin
+  EditDec.SelectAll;
+  EditDec.CopyToClipboard;
+end;
+
+procedure TForm1.HBtnCopyClick(Sender: TObject);
+begin
+  EditHex.SelectAll;
+  EditHex.CopyToClipboard;
+end;
+
+procedure TForm1.OBtnCopyClick(Sender: TObject);
+begin
+  EditOct.SelectAll;
+  EditOct.CopyToClipboard;
+end;
+
+
+    { Обработка верха }
+
+procedure TForm1.CheckBoxThemed1Change(Sender: TObject);
+begin
+  if CheckBoxThemed1.Checked then
+    Form1.FormStyle:=fsSystemStayOnTop
+    else  Form1.FormStyle:=fsNormal;
+end;
+
+procedure TForm1.ScrollAlphaChange(Sender: TObject);
+begin
+  Form1.AlphaBlendValue:=ScrollAlpha.Position;
+end;
+
+
+    { Обработка низа }
+
+procedure TForm1.LabelLinkClick(Sender: TObject);
+begin
+  OpenURL('https://github.com/SEVA77');
+end;
+
+procedure TForm1.LabelVerClick(Sender: TObject);
+begin
+  OpenURL('https://github.com/SEVA77/Dec-to-Bin-Converter/releases');
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -250,10 +266,6 @@ begin
 
 end;
 
-procedure TForm1.ScrollAlphaChange(Sender: TObject);
-begin
-  Form1.AlphaBlendValue:=ScrollAlpha.Position;
-end;
 
 
 end.
